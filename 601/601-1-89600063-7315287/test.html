@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draw Triangles</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="crimeMap" width="1000" height="600"></canvas>
+  
+  <script>
+    // Array of coordinates from the CriminalLogbook
+    var CriminalLogbook = [ 
+      { Loc_X : 639, Loc_Y : 288},
+      { Loc_X : 681, Loc_Y : 286},
+      { Loc_X : 712, Loc_Y : 293},
+      { Loc_X : 756, Loc_Y : 310},
+      { Loc_X : 715, Loc_Y : 368},
+      { Loc_X : 701, Loc_Y : 425},
+      { Loc_X : 753, Loc_Y : 436},
+      { Loc_X : 815, Loc_Y : 468},
+      { Loc_X : 795, Loc_Y : 506},
+      { Loc_X : 788, Loc_Y : 497},
+      { Loc_X : 781, Loc_Y : 486},
+      { Loc_X : 768, Loc_Y : 489},
+      { Loc_X : 750, Loc_Y : 500},
+      { Loc_X : 732, Loc_Y : 506},
+      { Loc_X : 714, Loc_Y : 514},
+      { Loc_X : 695, Loc_Y : 531},
+      { Loc_X : 693, Loc_Y : 552},
+      { Loc_X : 654, Loc_Y : 523},
+      { Loc_X : 624, Loc_Y : 500},
+      { Loc_X : 594, Loc_Y : 484},
+      { Loc_X : 555, Loc_Y : 474}
+    ];
+
+    // Get the canvas and its context
+    var canvas = document.getElementById("crimeMap");
+    var ctx = canvas.getContext("2d");
+
+    // Function to draw a small triangle
+    function drawTriangle(x, y, size) {
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + size, y);
+      ctx.lineTo(x + size / 2, y - size);
+      ctx.closePath();
+      ctx.fillStyle = "red";  // Set triangle color
+      ctx.fill();
+    }
+
+    // Loop through the CriminalLogbook data
+    for (var i = 0; i < CriminalLogbook.length; i++) {
+      var loc = CriminalLogbook[i];
+      drawTriangle(loc.Loc_X, loc.Loc_Y, 10);  // Call the drawTriangle function
+    }
+  </script>
+</body>
+</html>
