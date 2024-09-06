@@ -79,13 +79,16 @@ function setup()
   stroke(205,92,92);
    for (var i = 0; i < CriminalLogbook.length; i ++) {
     // stroke('red')
-    triangle(CriminalLogbook[i].Loc_X, CriminalLogbook[i].Loc_Y, CriminalLogbook[i].Loc_X, CriminalLogbook[i].Loc_Y,CriminalLogbook[i].Loc_X, CriminalLogbook[i].Loc_Y );    
+    // fill('red')
+    triangle(CriminalLogbook[i].Loc_X, CriminalLogbook[i].Loc_Y, CriminalLogbook[i].Loc_X+10, CriminalLogbook[i].Loc_Y, CriminalLogbook[i].Loc_X+10, CriminalLogbook[i].Loc_Y-10 );    
+    // ellipse(CriminalLogbook[i].Loc_X, CriminalLogbook[i].Loc_Y);
    }
 
    stroke(255,215,0);
-   for (var i = 0; i < CriminalLogbook.length; i ++) {
+   for (var i = 0; i < RobberyData_locX.length; i ++) {
     // stroke('red')
     ellipse(RobberyData_locX[i], RobberyData_locY[i], 5);
+    console.log(RobberyData_locX[i], RobberyData_locY[i]);
        }
   //  triangle(CriminalLogbook[0].Loc_X[i], CriminalLogbook[0].Loc_Y[i], 10)
   //  triangle(x1, y1, x2, y2, x3, y3)

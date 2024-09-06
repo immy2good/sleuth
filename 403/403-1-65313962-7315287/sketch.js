@@ -1,18 +1,14 @@
 /*
 
 Officer: 7315287
-CaseNum: 403-0-71244815-7315287
+CaseNum: 403-1-65313962-7315287
 
-Case 403 - Surveillance - stage 1
+Case 403 - Stake out - stage 2
 
-We are on the lookout for the criminal mastermind known as Shiffman. 
+I've gotten hold of a hot tip that Shiffman is hiding out at Judge Hopper's House.
+We've alerted the local precinct but they cannot act unless they know for certain that he's within 60 meters (pixels) of the spot.
 
-- Our sources tell us that he is currently heading west on Ada Avenue. 
-- I need you to sound the alarm if he crosses Leodorf Way.
-- Shiffman's position is signified by the mouse. 
-- To sound the alarm, draw a LightSeaGreen rectangle covering the remainder of the map from Leodorf Way to the west.
-
-NB. all road coordinates are measured from their central axis.
+Whenever Shiffman (signified by the mouse) is within 60 pixels of Judge Hopper's House - draw a Peru ellipse with a radius of 60 around it.
 
 Use X11 colours. You can find a reference table at https://www.w3.org/TR/css3-iccprof#numerical.
 
@@ -22,11 +18,13 @@ There are many possible ways of investigating this case, but you should use ONLY
   >
   <
   fill()  - Use r,g,b values between 0 and 255.
-  rect()
+  ellipse()
+  dist()
   mouseX
   mouseY
   width
   height
+
 
 */
 
@@ -48,6 +46,12 @@ function draw()
     image(img,0,0);
 
     //Write your code below here ...
+    let distance = dist(mouseX, mouseY, 2160,360)
+     
+    if (distance < 60) {
+      fill(205,133,63); 
+     ellipse(2160, 360, 120)
+  }
 
 
 
@@ -58,7 +62,8 @@ function draw()
     ellipse(mouseX, mouseY, 10, 10);
 
     // a helpful mouse coordinate pointer
-    fill(255);
+    fill(255,0,0);
     noStroke();
     text(`${mouseX},${mouseY}`,mouseX, mouseY);
+
 }
